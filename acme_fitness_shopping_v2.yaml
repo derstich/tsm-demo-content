@@ -15,7 +15,7 @@ spec:
       service: shopping
   strategy:
     type: Recreate
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
