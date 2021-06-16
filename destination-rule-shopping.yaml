@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: dr-shopping
+  namespace: acme
+spec:
+  host: shopping
+  subsets:
+  - name: dr-shopping-v1
+    labels:
+      version: shopping-v1
+  - name: dr-shopping-v2
+    labels:
+      version: shopping-v2
