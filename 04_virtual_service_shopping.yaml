@@ -16,12 +16,12 @@ spec:
     - destination:
         host: shopping
         port:
-          number: 3000
+          number: 80
         subset: dr-shopping-v1
       weight: 100
     - destination:
         host: shopping
         port:
-          number: 3000
+          number: 80
         subset: dr-shopping-v2
       weight: 0
