@@ -153,11 +153,13 @@ metadata:
 spec:
   ports:
     - name: http-shopping
+      port: 80
       protocol: TCP
-      port: 3000
+      targetPort: 3000
   selector:
     app: shopping
     service: shopping
+  type: LoadBalancer
 ---
 apiVersion: apps/v1 # for versions before 1.8.0 use apps/v1beta1
 kind: Deployment
