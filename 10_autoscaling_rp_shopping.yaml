@@ -1,0 +1,31 @@
+---
+apiVersion: autoscaling.tsm.tanzu.vmware.com/v1alpha1
+kind: Definition
+metadata:
+  name: rp-shopping
+  namespace: acme
+  labels:
+    app: shopping
+    version: v1
+    release: demo
+spec:
+  scaleTargetRef:
+    kubernetes:
+      kind: Deployment
+      name: shopping-v1
+  scaleRule:
+    mode: EFFICIENCY
+    enabled: true
+    instances:
+      min: 2
+      max: 10
+      default: 2
+      stepsDown: 1
+      stepsUp: 2
+    trigger:
+      gracePeriodSeconds: 30
+      metric:
+        name: Requests
+        scaleUp: 1500
+        scaleDown: 1000
+        windowSeconds: 30
