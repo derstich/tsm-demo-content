@@ -1,0 +1,31 @@
+---
+apiVersion: autoscaling.tsm.tanzu.vmware.com/v1alpha1
+kind: Definition
+metadata:
+  name: p99-order
+  namespace: acme
+  labels:
+    app: order
+    version: v1
+    release: demo
+spec:
+  scaleTargetRef:
+    kubernetes:
+      kind: Deployment
+      name: order
+  scaleRule:
+    mode: EFFICIENCY
+    enabled: true
+    instances:
+      min: 1
+      max: 10
+      default: 1
+      stepsDown: 1
+      stepsUp: 1
+    trigger:
+      gracePeriodSeconds: 60
+      metric:
+        name: p99Latency
+        scaleUp: 150
+        scaleDown: 105
+        windowSeconds: 60
