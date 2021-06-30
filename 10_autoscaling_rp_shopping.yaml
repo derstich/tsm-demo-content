@@ -15,7 +15,7 @@ spec:
       name: shopping-v1
   scaleRule:
     mode: EFFICIENCY
-    enabled: true
+    enabled: false
     instances:
       min: 2
       max: 10
@@ -23,9 +23,9 @@ spec:
       stepsDown: 1
       stepsUp: 2
     trigger:
-      gracePeriodSeconds: 30
+      gracePeriodSeconds: 60
       metric:
         name: Requests
         scaleUp: 1500
         scaleDown: 1000
-        windowSeconds: 30
+        windowSeconds: 60
