@@ -26,6 +26,6 @@ spec:
       gracePeriodSeconds: 60
       metric:
         name: p99Latency
-        scaleUp: 150
-        scaleDown: 105
+        scaleUp: 250
+        scaleDown: 200
         windowSeconds: 60
