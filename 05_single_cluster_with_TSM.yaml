@@ -187,9 +187,6 @@ spec:
       containers:
       - image: gcr.io/vmwarecloudadvocacy/acmeshop-front-end:rel1
         name: shopping
-        resources:
-          limits:
-            cpu: "0.5"
         env:
         - name: FRONTEND_PORT
           value: '3000'
