@@ -25,16 +25,13 @@ spec:
       containers:
       - image: derstich/front:grey
         name: shopping
-        resources:
-          limits:
-            cpu: "0.5"
         env:
         - name: FRONTEND_PORT
           value: '3000'
         - name: USERS_HOST
           value: 'users'
         - name: CATALOG_HOST
-          value: 'catalog.demo.derstich.de'
+          value: 'catalog'
         - name: ORDER_HOST
           value: 'order'
         - name: CART_HOST
