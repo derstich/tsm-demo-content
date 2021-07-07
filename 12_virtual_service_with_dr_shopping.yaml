@@ -1,0 +1,27 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: vs-shopping
+  namespace: acme
+spec:
+  gateways:
+  - acme-gateway
+  hosts:
+  - '*'
+  http:
+  - match:
+    - uri:
+        prefix: /
+    route:
+    - destination:
+        host: shopping
+        port:
+          number: 80
+        subset: dr-shopping-v1
+      weight: 100
+    - destination:
+        host: shopping
+        port:
+          number: 80
+        subset: dr-shopping-v2
+      weight: 0
