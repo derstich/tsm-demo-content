@@ -17,11 +17,3 @@ spec:
         host: shopping
         port:
           number: 80
-        subset: dr-shopping-v1
-      weight: 100
-    - destination:
-        host: shopping
-        port:
-          number: 80
-        subset: dr-shopping-v2
-      weight: 0
